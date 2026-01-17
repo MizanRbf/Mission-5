@@ -1,12 +1,22 @@
 import { prisma } from "./lib/prisma";
 
 async function run() {
-  const createUser = await prisma.user.create({
+  // Create User
+  // const createUser = await prisma.user.create({
+  //   data: {
+  //     name: "Mizan",
+  //     email: "mizanrbf@next.com",
+  //   },
+  // });
+  // console.log("Created user", createUser);
+  // Create post for user id = 1
+  const createPost = await prisma.post.create({
     data: {
-      name: "Mizan",
-      email: "mizanrbf@next.com",
+      title: "this is title",
+      content: "this is content",
+      author_id: 1,
     },
   });
-  console.log("Created user", createUser);
+  console.log("created post", createPost);
 }
 run();
